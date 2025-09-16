@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cine Joy - Accueil</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* Style général de la page */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(#9b0487, #8360c3);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    /* Container principal avec légère transparence et effet blur */
+    .container {
+      text-align: center;
+      padding: 50px;
+      background-color: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      width: 90%;
+      max-width: 900px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Conteneur du titre avec effet shine amélioré */
+    .title-container {
+      position: relative;
+      margin-bottom: 35px;
+      overflow: hidden;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .main-title {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      background: linear-gradient(120deg, #ff9a9e, #fad0c4, #ffd1ff, #a18cd1, #fbc2eb);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: gradient-shift 8s ease infinite;
+      margin-bottom: 10px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      letter-spacing: 1px;
+    }
+    
+    .title-highlight {
+      position: relative;
+      display: inline-block;
+      color: white;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 
+                   0 0 20px rgba(255, 255, 255, 0.3),
+                   0 0 30px rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Effet de shine qui traverse le titre */
+    .title-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -150%;
+      width: 70%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+      );
+      transform: skewX(-30deg);
+      animation: shine 4s infinite;
+    }
+
+    @keyframes shine {
+      0% {
+        left: -150%;
+      }
+      50%, 100% {
+        left: 150%;
+      }
+    }
+    
+    @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Conteneur des descriptions */
+    .description-container {
+      margin: 30px 0;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+    }
+
+    /* Texte descriptif plus grand */
+    .description {
+      font-size: 1.5rem;
+      line-height: 1.5;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      font-weight: 600;
+    }
+
+    /* Texte d'invitation */
+    .invitation {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 40px 0;
+      color: #e2f0ff;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+    
+    /* Conteneur des boutons */
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 50px;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+    }
+
+    /* Boutons avec effet amélioré */
+    .btn-shiny {
+      padding: 16px 32px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: white;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      background-size: 200% 200%;
+      animation: gradientMove 4s ease infinite;
+    }
+
+    .btn-shiny:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-shiny:active {
+      transform: translateY(1px);
+    }
+
+    .btn-shiny::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 70%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.6),
+        transparent
+      );
+      transform: skewX(-25deg);
+      transition: 0.5s;
+    }
+
+    .btn-shiny:hover::before {
+      left: 150%;
+    }
+
+    .rainbow-btn {
+      background: linear-gradient(270deg, #ff6ec4, #7873f5, #5ee7df);
+      background-size: 200% 200%;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    /* Emoji animation */
+    .emoji {
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+    
+  <div class="container">
+    <!-- Div pour le titre -->
+    <div class="title-container">
+      <h1 class="main-title"><span class="emoji">✨</span> 🌟 Bienvenue sur <span class="title-highlight">CineJoy</span> <span class="emoji">✨</span></h1>
+    </div>
+
+    <!-- Div pour les descriptions -->
+    <div class="description-container">
+      <p class="description">
+       <i> 🎇Découvrez et explorez les meilleurs films et leurs adaptations littéraires.</i>
+      </p>
+      <p class="description">
+        <i>🌌Plongez dans des univers captivants et laissez-vous guider par vos émotions.</i>
+      </p>
+      <p class="description">
+        <i>✨Découvrez vos prochains films préférés ou ajoutez vos films favoris 💖</i>
+    </p>
+
+      <p class="invitation">
+        <span class="emoji">🎬</span> Alors Connectez-vous à CineJoy 🤩 pour commencer votre aventure ciné !  👇
+      </p>
+    </div>
+
+    <!-- Div pour les boutons -->
+    <div class="button-container">
+      <button onclick="location.href='authentification.jsp'" 
+              class="btn-shiny rainbow-btn">
+        Se connecter
+      </button>
+      <button onclick="location.href='inscription.jsp'" 
+              class="btn-shiny rainbow-btn">
+        S'inscrire
+      </button>
+    </div>
+  </div>
+</body>
+</html>
